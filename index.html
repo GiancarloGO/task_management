@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema de Gestión de Tareas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>📋 Gestión de Tareas</h1>
+    <p>Organiza y controla tus actividades fácilmente</p>
+  </header>
+
+  <main>
+
+    <!-- ── Formulario para crear / editar ── -->
+    <section class="form-section">
+      <h2 id="form-title">Nueva Tarea</h2>
+      <div class="form-group">
+        <label for="task-title">Título <span class="required">*</span></label>
+        <input type="text" id="task-title" placeholder="Ej: Estudiar JavaScript" maxlength="255" />
+      </div>
+      <div class="form-group">
+        <label for="task-desc">Descripción</label>
+        <textarea id="task-desc" rows="3" placeholder="Detalla tu tarea..."></textarea>
+      </div>
+      <div class="form-actions">
+        <button id="btn-save" onclick="saveTask()">💾 Guardar</button>
+        <button id="btn-cancel" class="btn-secondary hidden" onclick="cancelEdit()">✖ Cancelar</button>
+      </div>
+    </section>
+
+    <!-- ── Filtros ── -->
+    <section class="filter-section">
+      <button class="filter-btn active" onclick="filterTasks('all',   this)">Todas</button>
+      <button class="filter-btn"        onclick="filterTasks('pending', this)">Pendientes</button>
+      <button class="filter-btn"        onclick="filterTasks('done',    this)">Completadas</button>
+      <span id="task-count"></span>
+    </section>
+
+    <!-- ── Lista de tareas ── -->
+    <section class="task-list" id="task-list">
+      <p class="loading">Cargando tareas...</p>
+    </section>
+
+  </main>
+
+  <!-- ── Modal de confirmación de eliminación ── -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <p>¿Deseas eliminar esta tarea?</p>
+      <div class="modal-actions">
+        <button class="btn-danger"     onclick="confirmDelete()">Sí, eliminar</button>
+        <button class="btn-secondary"  onclick="closeModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
