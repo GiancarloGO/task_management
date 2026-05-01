@@ -15,8 +15,4 @@ CREATE TABLE IF NOT EXISTS tasks (
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- 3. Datos de prueba (opcional)
-INSERT INTO tasks (title, description, completed) VALUES
-('Estudiar HTML',      'Repasar etiquetas semánticas y formularios', 0),
-('Practicar CSS',      'Flexbox, Grid y animaciones básicas',         0),
-('Aprender PHP',       'Conexión a MySQL con PDO',                    1);
+
